@@ -15,9 +15,6 @@ const db = knex({
 });
 
 
-db.select('*').from('users').then(data =>{
-	console.log(data);
-});
 
 const app = express();
 app.use(bodyParser.json());
@@ -85,7 +82,7 @@ app.post('/register', (req, res) => {
 })
 
 
-
+/*No implemented*/
 app.get('/profile/:id', (req, res) => {
 	const { id } = req.params;
 	db.select('*').from('users').where({id})
@@ -116,18 +113,6 @@ app.put('/image', (req, res) => {
 
 
 
-app.listen(3001, () => {
-	console.log('app is running ok');
-})
+app.listen(3001);
 
 
-
-/*
- / --> res = this is working  \/
- /signin --> POST = success/fail \/
- /register --> POST = user       \/
- /profile/:userid --> GET = user
- /image --> PUT --> user
-
-
-*/
